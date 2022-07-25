@@ -1,19 +1,7 @@
-import { distance, closest } from 'fastest-levenshtein';
-import { assertString, assertRange, assertNumber } from './helpers/validate';
+import { ZLOOKUP, LEVENSHTEIN } from './main';
 
-const exclusions = [' Inc.', ', Inc.', 'The ', '.com'];
-
-/**
- * Exclude words from matching score. See exclusions above.
- */
-function excludeWords(input: string): string {
-  let output = input;
-  exclusions.forEach((exclusion) => {
-    const regex = new RegExp(exclusion, 'gi');
-    output = output.replace(regex, '');
-  });
-  return output;
-}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare let global: any;
 
 /**
  * Fuzzy String Matching
@@ -22,15 +10,7 @@ function excludeWords(input: string): string {
  * @return The matched value
  * @customfunction
  */
-export function ZLOOKUP(value: string, column: string[][], threshold: number) {
-  assertString(value);
-  assertRange(column);
-  assertNumber(threshold, 'threshold');
-
-  const searchValues = column.flat();
-  const closestString = closest(value, searchValues);
-  return closestString;
-}
+global.ZLOOKUP = ZLOOKUP;
 
 /**
  * Get the string distance (Levenshtein distance)
@@ -39,10 +19,4 @@ export function ZLOOKUP(value: string, column: string[][], threshold: number) {
  * @return The string distance
  * @customfunction
  */
-export function LEVENSHTEIN(a: string, b: string) {
-  assertString(a);
-  assertString(b);
-
-  const stringDistance = distance(a, b);
-  return stringDistance;
-}
+global.LEVENSHTEIN = LEVENSHTEIN;

@@ -1,4 +1,4 @@
-import { LEVENSHTEIN, ZLOOKUP } from './index';
+import { ZLOOKUP, LEVENSHTEIN } from './main';
 
 describe('distance', () => {
   test('equals', () => {
