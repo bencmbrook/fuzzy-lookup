@@ -5,7 +5,9 @@ describe('util', () => {
   describe('getDayFormat()', () => {
     it('no parameter', () => {
       const now = new Date();
-      const expected = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+      const expected = `${now.getFullYear()}-${
+        now.getMonth() + 1
+      }-${now.getDate()}`;
       expect(getDayFormat()).toBe(expected);
     });
     it('with date parameter', () => {
