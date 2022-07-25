@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint --fix src/**/*.ts",
     "test": "jest",
+    "clasp": "clasp",
     "build": "yarn lint && yarn test && rimraf dist && webpack && cpx src/appsscript.json dist && cpx \"src/**/*.html\" dist",
     "push": "yarn build && yarn clasp push"
   },
@@ -44,5 +45,8 @@
       "json",
       "node"
     ]
+  },
+  "dependencies": {
+    "fastest-levenshtein": "^1.0.14"
   }
 }

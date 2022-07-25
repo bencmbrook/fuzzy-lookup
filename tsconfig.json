@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
     "sourceMap": true,
-    "target": "es5",
-    "module": "es2015"
+    "target": "ES2019",
+    "module": "es2015",
+    "esModuleInterop": true,
+    "lib": ["ESNext"]
   }
 }
