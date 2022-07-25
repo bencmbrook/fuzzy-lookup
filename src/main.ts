@@ -22,7 +22,11 @@ function excludeWords(input: string): string {
  * @return The matched value
  * @customfunction
  */
-export function ZLOOKUP(value: string, column: string[][], threshold: number) {
+export function ZLOOKUP(
+  value: string,
+  column: string[][],
+  threshold: number,
+): string {
   assertString(value);
   assertRange(column);
   assertNumber(threshold, 'threshold');
@@ -39,7 +43,7 @@ export function ZLOOKUP(value: string, column: string[][], threshold: number) {
  * @return The string distance
  * @customfunction
  */
-export function LEVENSHTEIN(a: string, b: string) {
+export function LEVENSHTEIN(a: string, b: string): number {
   assertString(a);
   assertString(b);
 
